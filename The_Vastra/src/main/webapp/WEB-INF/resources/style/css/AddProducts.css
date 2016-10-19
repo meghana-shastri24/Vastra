@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+body
+  {
+  height: 600px;
+  background:  url("../../../resources/images/bg8.jpg") no-repeat center center fixed;
+  backround-size: cover;
+width:100%;
+  }
+  
+#wrapper{
+  
+margin-left:325px;
+ }
+ 
+#form{
+  margin-top:75px;
+  padding-bottom:30px;
+  } 
+  
+#label{
+	size:16px;
+	color:White;
+	}
