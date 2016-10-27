@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+
+#shopping{
+	text-align:center; 
+	color:#816263;
+	font-family: Papyrus, fantasy;
+
+	font-size:30px;
+	
+}
+
+#title
+{
+	
+	font-family:cursive;
+}
+
+.info
+{
+	font-family:Comic Sans MS;
+	padding-bottom:20px;
+	border-bottom:1px solid black;
+	margin-bottom:20px;
+}
+
+#total{
+	
+	font-family:Comic Sans MS;
+	text-align:center;
+}
