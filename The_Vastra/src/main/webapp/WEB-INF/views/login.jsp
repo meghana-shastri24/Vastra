@@ -11,62 +11,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>"/>
   <style>
- body
-  {
-  background-image: url("<c:url value="/resources/images/bg.jpeg"/>")
-  } 
-  #wrapper{
-  
 
-margin-left:325px;
- }
+
+ 
   #form{
   margin-top:75px;
+  
   } 
-	#label{
-	size:16px;
-	color:White;
-	margin-top:80px;
+  
+  .form
+	{
+	margin:90px auto 0px;
+	position:relative;
+	max-width:500px;
 	}
-
-
-</style>
+	
+	</style>
 </head>
 
 <body>
 
 <c:if test="${not empty msg}">
-                <div class="msg">${msg}</div>
+                <div class="msg" >${msg}</div>
             </c:if>
             
+            <!-- Login Form -->
+            
 <div class="form-horizontal" id="wrapper">
- <form name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+<div class="form form-group-sm">
+
+
+	 <form name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+                
                 <c:if test="${not empty error}">
-                    <div class="error" style="color: #ff0000;">${error}</div>
+                    <div class="error" style="color: #ff0000; margin-top:90px;">${error}</div>
                 </c:if>
-                <div class="conatiner">
-
-  <div class="form-group form-group-sm">
-  <div class="col-xs-6">
-	<label for="email" id="label"  > Email Address </label>
+                
+  <div class="conatiner">
+  
+  	<div class="form-group ">
+  	<label for="email"> Email Address </label>
 	<input name="j_email" class="form-control"></input>
- </div>
- </div>
+    </div>
  
- <div class="form-group form-group-sm">
- <div class="col-xs-6">
-		<label  for="password" id="label"> Password </label>
-		<input name="j_password" class="form-control" type="password" ></input>
-</div>
-</div>
-</div>
-        
+    <div class="form-group ">
+	<label  for="password"> Password </label>
+	<input name="j_password" class="form-control" type="password" ></input>
+    </div>
 
-<button type="submit" class="btn btn-primary" >Login</button>
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+  
 
+    <button type="submit" class="btn btn-primary">Login</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+ </div>
 </form>
 </div>
+</div>
+
+<!-- End of Form -->
 <script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
 </body>

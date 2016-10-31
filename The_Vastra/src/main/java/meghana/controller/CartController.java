@@ -3,11 +3,12 @@ package meghana.controller;
 import java.util.List;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import meghana.Dao.CartItemService;
-import meghana.Dao.CartService;
-import meghana.Dao.ProductDaoService;
-import meghana.Dao.SignUpDaoService;
+import meghana.Service.CartItemService;
+import meghana.Service.CartService;
+import meghana.Service.ProductService;
+import meghana.Service.SignUpService;
 import meghana.model.Cart;
 import meghana.model.CartItems;
 import meghana.model.ProductForm;
@@ -37,10 +38,10 @@ public class CartController {
 	    private CartItemService cartItemService;
 
 	    @Autowired
-	    private SignUpDaoService customerService;
+	    private SignUpService customerService;
 
 	    @Autowired
-	    private ProductDaoService productService;
+	    private ProductService productService;
 
 	    @RequestMapping("/{cartid}")
 	    public @ResponseBody
@@ -98,7 +99,7 @@ public class CartController {
 
 	    }
 
-	    @RequestMapping(value = "/clear/{cartid}", method = RequestMethod.DELETE)
+	    @RequestMapping(value = "/clear/{cartid}", method = RequestMethod.PUT)
 	    @ResponseStatus(value = HttpStatus.NO_CONTENT)
 	    public void clearCart(@PathVariable(value = "cartid") int cartid) {
 	        Cart cart = cartService.getCartById(cartid);

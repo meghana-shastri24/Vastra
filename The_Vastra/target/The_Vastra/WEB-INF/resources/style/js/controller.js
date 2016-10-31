@@ -5,17 +5,14 @@ var cartApp = angular.module ("cartApp", []);
 cartApp.controller("cartCtrl", function ($scope, $http){
 
     $scope.removeFromCart = function (cartitemid) {            
-    	alert("Product successfully added to the cart!"+cartitemid);
-
-        $http.put('http://localhost:8080/The_Vastra/cart/remove/'+cartitemid).success(function (data) {    	alert("Product successfully added to the cart!"+cartitemid);
+        $http.put('http://localhost:8080/The_Vastra/cart/remove/'+cartitemid).success(function (data) {    	
+        	alert("Product successfully removed from the cart!"+cartitemid);
 
             $scope.refreshCart();
         });
     };
     $scope.addToCart = function (productid) {
-        alert("Product successfully added to the cart!"+productid);
-
-        	$http.put('http://localhost:8080/The_Vastra/cart/add/'+productid).success(function () {
+        	$http.put('http://localhost:8080/The_Vastra/cart/add1/'+productid).success(function () {
             alert("Product successfully added to the cart!");
         });
     };
@@ -24,9 +21,6 @@ cartApp.controller("cartCtrl", function ($scope, $http){
     $scope.refreshCart = function () {
         $http.get('http://localhost:8080/The_Vastra/cart/'+$scope.cartid).success(function (data) {
            $scope.cart=data;
-        // window.alert($scope.cart);
-         //  alert("after refresh")
-          //$scope.cartItem=$scope.cart.cartItem;
            console.log($scope.cart);
            
            
@@ -34,7 +28,11 @@ cartApp.controller("cartCtrl", function ($scope, $http){
     };
 
     $scope.clearCart = function () {
-        $http.put('http://localhost:8080/The_Vastra/cart/'+$scope.cartid).success(function (data) {
+        alert("Product successfully added to the cart!");
+
+        $http.put('http://localhost:8080/The_Vastra/cart/clear/'+$scope.cartid).success(function (data) {
+            alert("Product successfully added to the cart!");
+
         	$scope.refreshCart();
         });
     };
@@ -43,9 +41,8 @@ cartApp.controller("cartCtrl", function ($scope, $http){
     	console.log("hi");
         $scope.cartid = cartid;
        console.log($scope.cartid);
-        $scope.refreshCart(cartid);
+        $scope.refreshCart();
     };
-    
     
     $scope.calGrandTotal = function () {
     	

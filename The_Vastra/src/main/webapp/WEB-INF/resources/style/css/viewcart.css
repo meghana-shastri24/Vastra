@@ -20,7 +20,6 @@
 {
 	font-family:Comic Sans MS;
 	padding-bottom:20px;
-	border-bottom:1px solid black;
 	margin-bottom:20px;
 }
 
@@ -28,4 +27,54 @@
 	
 	font-family:Comic Sans MS;
 	text-align:center;
+}
+
+#item-display
+{
+	
+	width:auto;
+	height:300px;
+	
+}
+
+
+#wrapper
+{
+			border-bottom:1px solid black;
+			padding:30px;
+			
+	
+}
+
+#wrapper:hover
+{
+	
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+}
+#item-display {
+  position: relative;
+  
+  border: 1px solid #333;
+  margin: 2%;
+  overflow: hidden;
+
+  max-width: 100%;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#item-display:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#clearcart
+{
+
+	color:white;
+	font-family:Comic Sans MS;
+	
+	
 }

@@ -1,10 +1,14 @@
 package meghana.model;
 
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -14,19 +18,31 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="CustomerLogin")
-public class LoginForm {
+public class LoginForm implements Serializable {
+	
+	
 
 	@Id
-	public int id;
+	@GeneratedValue
+	public int cid;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="id")
+	private SignUpForm signup;
 	
-	
-public int getId() {
-		return id;
+public int getCid() {
+		return cid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
+	public SignUpForm getSignup() {
+		return signup;
+	}
+	public void setSignup(SignUpForm signup) {
+		this.signup = signup;
+	}
+
 @NotEmpty
  @Email
 	private String email;

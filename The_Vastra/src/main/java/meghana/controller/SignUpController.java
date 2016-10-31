@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -13,17 +14,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import meghana.Dao.SignUpDaoService;
+import meghana.Dao.SignUpDao;
 import meghana.model.SignUpForm;
 
 @Controller
 public class SignUpController {
 	
 	@Autowired
-	SignUpDaoService signupdaoservice;
+	SignUpDao signupdaoservice;
 	
 	@Qualifier(value="signupdaoservice")
-	public void setSignUpDaoService(SignUpDaoService ps)
+	public void setSignUpDaoService(SignUpDao ps)
 	{
 	this.signupdaoservice=ps;
 	}
@@ -36,7 +37,7 @@ public class SignUpController {
     
     
     
-   @RequestMapping(value="/SignUpSuccess")
+   @RequestMapping(value="/SignUp", method=RequestMethod.POST)
     public String signupsucces(@Valid @ModelAttribute("signupform") SignUpForm signupform, BindingResult result) {
     	if(result.hasErrors())
     	{

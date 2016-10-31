@@ -1,6 +1,7 @@
 package meghana.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import meghana.Dao.SignUpDaoService;
+import meghana.Service.SignUpService;
 import meghana.model.SignUpForm;
 
 
@@ -18,7 +19,7 @@ public class CartCont {
 	
 	
 	    @Autowired
-	    private SignUpDaoService customerService;
+	    private SignUpService customerService;
 
 	    @RequestMapping
 	    public String getCart(){

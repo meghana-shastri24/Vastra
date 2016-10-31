@@ -4,6 +4,8 @@ package meghana.controller;
 import java.io.BufferedOutputStream;
 
 
+
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +15,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import meghana.Dao.ProductDaoService;
+import meghana.Service.ProductService;
 import meghana.model.ProductForm;
 
 
@@ -35,10 +36,10 @@ import meghana.model.ProductForm;
 		private Path path;
 		
 		@Autowired
-		ProductDaoService productservice;
+		ProductService productservice;
 		
 		@Qualifier(value="productservice")
-		public void setProductService(ProductDaoService ps)
+		public void setProductService(ProductService ps)
 		{
 		this.productservice=ps;
 		}
@@ -150,6 +151,11 @@ import meghana.model.ProductForm;
 	@RequestMapping(value="/deleteproduct/{productid}", method=RequestMethod.GET)
 	public String deleteproduct(@PathVariable int productid, Model model, HttpServletRequest request)
 	{
+		
+		
+		ProductForm productform=productservice.getProductsbyId(productid);
+		productservice.deleteproduct(productform);
+		
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + productid + ".jpg");
 		
@@ -162,9 +168,6 @@ import meghana.model.ProductForm;
 		catch (IOException e) {
             e.printStackTrace();
 		}
-		
-		ProductForm productform=productservice.getProductsbyId(productid);
-		productservice.deleteproduct(productform);
 		
 		return "redirect:/allproducts";
 	}

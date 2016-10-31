@@ -1,6 +1,8 @@
 package meghana.model;
 
-import javax.persistence.CascadeType;
+
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,10 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class CartItems {
+public class CartItems implements Serializable {
+	
+    private static final long serialVersionUID = -904360230041854157L;
+
 
 	@Id
 	@GeneratedValue

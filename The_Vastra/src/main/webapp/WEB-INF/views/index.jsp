@@ -35,7 +35,6 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
     <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
     
   </ol>
 
@@ -44,11 +43,7 @@
     <div class="item active">
       <img class="img-responsive"  src="<c:url value="/resources/images/Saree.jpg"/>" alt="Lehanga">
     </div>
-
-    <div class="item">
-      <img class="img-responsive" src="<c:url value="/resources/images/suit 02.jpg"/>" alt="Saree">
-    </div>
-
+    
     <div class="item">
       <img class="img-responsive" src="<c:url value="/resources/images/Gown.jpg"/>" alt="Gown">
     </div>
@@ -81,24 +76,24 @@
 
 <div class="container" style="padding-top:30px;">
 <div class="row">
-    <div class="col-xs-4">
+    <div class="col-sm-6 col-md-4 col-lg-4">
       
-        <img class="img-responsive img-circle "  id="image"  src="<c:url value="/resources/images/Lehanga.jpg"/>" alt="Lehanga"  style="width:300px;
+        <img class="img-responsive img-circle bw "  id="image"  src="<c:url value="/resources/images/Lehanga.jpg"/>" alt="Lehanga"  style="width:300px;
  height:300px;
  margin-bottom:100px;">
       
     </div>
-    <div class="col-xs-4">
+    <div class="col-sm-6 col-md-4 col-lg-4">
      
         
-        <img class="img-responsive img-circle" id="image" src="<c:url value="/resources/images/saree2.jpg"/>" alt="Saree" style="width:300px;
+        <img class="img-responsive img-circle bw" id="image" src="<c:url value="/resources/images/saree2.jpg"/>" alt="Saree" style="width:300px;
  height:300px;
  margin-bottom:100px;">
      
     </div>
-    <div class="col-xs-4">
+    <div class="col-sm-6 col-md-4 col-lg-4">
       
-        <img class="img-responsive img-circle" id="image" src="<c:url value="/resources/images/chudi.jpg"/>" alt="ware" style="width:300px;
+        <img class="img-responsive img-circle bw" id="image" src="<c:url value="/resources/images/chudi.jpg"/>" alt="ware" style="width:300px;
  height:300px;
  margin-bottom:100px;">
       

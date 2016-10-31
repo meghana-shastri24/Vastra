@@ -9,11 +9,6 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
-<style>
-
-
-</style>
 </head>
 
 <body>
@@ -23,7 +18,7 @@ xmlns:spring="http://www.springframework.org/tags"
 xmlns:security="http://www.springframework.org/security/tags" 
 > 
 
-    	<!-- Search Bar-->
+<!-- Navigation bar -->
 
  <div class="navbar-default navbar-fixed-top" id="menu">
 		<div class="container">
@@ -34,7 +29,7 @@ xmlns:security="http://www.springframework.org/security/tags"
     	
     			</button>
     
-    			<a class="navbar-brand" href="/The_Vastra">Vastra-The Fashion</a>
+    			<a class="navbar-brand" href="/The_Vastra"><i>Vastra-The Fashion</i></a>
     
     
       			<div class="navbar-collapse collapse navHeaderCollapse">
@@ -55,34 +50,35 @@ xmlns:security="http://www.springframework.org/security/tags"
     		<div class="input-group">
         		<input type="text" class="form-control" placeholder="Search Here..." id="Search" />
         	<div class="input-group-btn">
-            	<button type="button" class="btn btn-default">
+            	<button type="button" class="btn btn-default" id="search">
                 <span class="glyphicon glyphicon-search"></span>
             	</button>
         	</div>
     		</div>
 	</form>
-		</li>
-    	</ul>
+	</li>
+  </ul>
     	  
     	  <div>
     	  <ul class="nav navbar-nav navbar-right">
     	 
     	  <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-                            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li></c:if>
+                            <li><a>Welcome:${pageContext.request.userPrincipal.name} </a></li>
+                            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+                            <li><a href="<c:url value="/customer/viewcart" />"><i class="fa fa-shopping-bag" style="font-size:20px;"></i>
+</a></li>
+          </c:if>
     	      	  
     	      	  
     	      	  
          
           <c:if test="${pageContext.request.userPrincipal.name  == null}">
-          <li><a href="login"> <span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
+          <li><a href="login"> <span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp;Login</a></li>
       	  <li><a href="SignUp"> <span class="glyphicon glyphicon-user"></span> &nbsp;Sign Up</a></li>
       	  </c:if>
       	  
-      	   <c:if test="${pageContext.request.userPrincipal.name != null}">
-    	  			<security:authorize ifAnyGranted="ROLE_ADMIN">
+      	  <c:if test="${pageContext.request.userPrincipal.name =='m@m'}">
     	  <li><a href="AddProducts">Add Items</a></li>
-    	  			</security:authorize>
     	  </c:if>
     	  
     	  </ul> 

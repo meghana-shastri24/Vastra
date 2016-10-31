@@ -1,6 +1,9 @@
 package meghana.Dao;
 
-	import org.hibernate.Session;
+	import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 
 
@@ -9,12 +12,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import meghana.model.Authorities;
+import meghana.model.BillingAddress;
+import meghana.model.Cart;
 import meghana.model.LoginForm;
+import meghana.model.ProductForm;
 import meghana.model.SignUpForm;
 
 	@Repository
+	@Transactional
 	public class SignUpDaoImpl  {
 
 		
@@ -35,20 +43,55 @@ import meghana.model.SignUpForm;
 		        
 
 		        LoginForm l = new LoginForm();
+		        p.setLogin(l);
+		        l.setSignup(p);
 		        l.setEmail(p.getEmail());
 		        l.setPassword(p.getPassword());
-		        l.setId(p.getId());
 		        session.persist(l);
-
 		        
 		        Authorities at = new Authorities();
+		        at.setCid(p.getId());
 		        at.setUsername(p.getEmail());
 		        at.setAuthority("ROLE_USER");
-		        at.setId(p.getId());
-		        session.saveOrUpdate(at);
-
+		        
+		        
+		        session.persist(at);
+		        
+		        
+		       BillingAddress b=new BillingAddress();
+		       p.setBad(b);
+		       b.setSignup(p);
+		       b.setBaddress(p.getAddress());
+		       session.persist(b);
+		       
+		       Cart c=new Cart();
+		       
+		       c.setSignup(p);
+		       p.setCart(c);
+		       session.persist(c);
+		       
+		       
 		        logger.info("Customer saved successfully, Customer Details="+p);
 		    }
 
 
-}
+			public SignUpForm getCustomerByUsername(String username) {
+				
+				Session session = sessionFactory.getCurrentSession();
+		        Query query = session.createQuery("from SignUpForm where email = ?");
+		        query.setString(0, username);
+
+		        return (SignUpForm) query.uniqueResult();
+			}
+
+
+			/*public String getcustbyemail(String string) {
+				
+				Session session=this.sessionFactory.getCurrentSession();
+				Query query=session.createQuery("from SignUpForm where email= :email");
+				query.setParameter("email",string);
+				
+				
+				return p;}
+				*/
+			}	
