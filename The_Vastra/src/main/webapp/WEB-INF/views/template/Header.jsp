@@ -28,9 +28,9 @@ xmlns:security="http://www.springframework.org/security/tags"
     				<span class="icon-bar"></span>
     	
     			</button>
-    
+    <div class="navbar-header">
     			<a class="navbar-brand" href="/The_Vastra"><i>Vastra-The Fashion</i></a>
-    
+    </div>
     
       			<div class="navbar-collapse collapse navHeaderCollapse">
       				<ul class="nav navbar-nav">
@@ -47,7 +47,7 @@ xmlns:security="http://www.springframework.org/security/tags"
     	<!-- Search Bar-->
 	<li>
 	<form class="navbar-form">
-    		<div class="input-group">
+    		<div class="input-group" id="searchsize">
         		<input type="text" class="form-control" placeholder="Search Here..." id="Search" />
         	<div class="input-group-btn">
             	<button type="button" class="btn btn-default" id="search">

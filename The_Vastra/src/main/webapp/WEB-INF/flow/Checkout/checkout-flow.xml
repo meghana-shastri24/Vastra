@@ -23,8 +23,13 @@
 
     <action-state id="processOrder">
         <evaluate expression="cartitemDaoImpl.removeallcartitems(order.cart)" />
+        <transition  to="thankCustomers" />
+    </action-state>
+    <action-state id="thankCustomers">
+        <evaluate expression="customerOrderDaoimpl.removeAllOrder(order.cart)" />
         <transition  to="thankCustomer" />
     </action-state>
+    
 
     <view-state id="thankCustomer" view="thankCustomer.jsp" model="order">
         <transition to="endState" />

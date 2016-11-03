@@ -39,4 +39,16 @@ public class customerorderserviceimpl implements CustomerOrderService {
 
         return grandTotal;
     }
+    
+    public List<CustomerOrder> getOrderByCartId(int cartid)
+    {
+    	
+    	return customerOrderDao.getOrderByCartId(cartid);
+    }
+
+	public void deleteOrder(CustomerOrder order)
+	{
+		
+		customerOrderDao.deleteOrder(order);
+	}
 }

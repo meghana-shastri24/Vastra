@@ -55,17 +55,12 @@ xmlns:security="http://www.springframework.org/security/tags"
  </div>
 <c:if test="${pageContext.request.userPrincipal.name != 'm@m'}">
 
-	<div class="btn-group" style="height:30px;margin:0px 0px 20px 20px;">
-						<a href="#" ng-click="addToCart('${p.productid }')" class="btn btn-success">
+	<div  style="height:30px;margin:0px 0px 20px 80px;">
+						<a href="#" ng-click="addToCart('${p.productid }')" class="btn btn-default" id="bag">
 							<i class="fa fa-shopping-bag" aria-hidden="true">&nbsp; &nbsp;Add to Bag </i>
 						</a>
 	</div>
 						
-	<div class="btn-group" style="height:30px;margin:0px 0px 20px 10px;">
-						<button type="button" class="btn btn-danger">
-							<span class="glyphicon glyphicon-flash">Order Now</span>
-						</button>
-	</div>
 </c:if>					
 
 	</div>

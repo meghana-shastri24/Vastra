@@ -7,7 +7,7 @@
 <style>
 .footer
 {
-background-color: #816263;
+background-color:#94618e;
 color: grey;
 text-align:left;
 padding:10px;

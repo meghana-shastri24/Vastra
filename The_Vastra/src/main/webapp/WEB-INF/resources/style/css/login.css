@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+#wrapper
+{
+  background: url("../../../resources/images/beauty fashion model barbara palvin hd wallpapers.jpg") no-repeat;
+background-size:cover;
+height:500px;
+margin-top:30px;
+
+
+}
+ 
+  #form{
+  margin-top:45px;
+  
+  } 
+  
+  .form
+	{
+	margin:90px auto 0px;
+	position:relative;
+	max-width:500px;
+	}

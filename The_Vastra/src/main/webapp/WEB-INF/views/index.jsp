@@ -22,9 +22,6 @@
 
 <body>
 
-
-
-
 <!-- CAROUSEL -->
 <div class="container">
   	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -41,19 +38,19 @@
 <!-- Wrapper for slides -->
   <div class="carousel-inner "  role="listbox">
     <div class="item active">
-      <img class="img-responsive"  src="<c:url value="/resources/images/Saree.jpg"/>" alt="Lehanga">
+      <img class="img-responsive"  src="<c:url value="/resources/images/website-banners-26.jpg"/>" alt="Lehanga">
     </div>
     
     <div class="item">
-      <img class="img-responsive" src="<c:url value="/resources/images/Gown.jpg"/>" alt="Gown">
+      <img class="img-responsive" src="<c:url value="/resources/images/banner-05.jpg"/>" alt="Gown">
     </div>
 
     <div class="item">
-      <img class="img-responsive" src="<c:url value="/resources/images/chudi 1.jpg"/>" alt="Chudi">
+      <img class="img-responsive" src="<c:url value="/resources/images/banner (1).jpg"/>" alt="Chudi">
     </div>
     
     <div class="item">
-      <img class="img-responsive" src="<c:url value="/resources/images/sherwani 3.jpg"/>" alt="Sherwani">
+      <img class="img-responsive" src="<c:url value="/resources/images/londonbeauty-shop-banner.jpg"/>" alt="Sherwani">
     </div>
     
     
@@ -74,37 +71,27 @@
 
 <!-- images -->
 
-<div class="container" style="padding-top:30px;">
-<div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-4">
-      
-        <img class="img-responsive img-circle bw "  id="image"  src="<c:url value="/resources/images/Lehanga.jpg"/>" alt="Lehanga"  style="width:300px;
- height:300px;
- margin-bottom:100px;">
-      
+<div class="container-fluid" style="padding-top:30px;">
+<div >
+    <div class="col-sm-6 col-md-6 col-lg-6">
+    
+    <a href="productlist?param=men collection">
+            <img class="img-responsive bw" src="<c:url value="/resources/images/stylish-man-hd-wallpaper-e1435129334519.jpg"/>" alt="Chudi">
+     </a>
     </div>
-    <div class="col-sm-6 col-md-4 col-lg-4">
-     
-        
-        <img class="img-responsive img-circle bw" id="image" src="<c:url value="/resources/images/saree2.jpg"/>" alt="Saree" style="width:300px;
- height:300px;
- margin-bottom:100px;">
-     
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-4">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+    
+        			<a href="productlist?param=women collection">
+            <img class="img-responsive bw" src="<c:url value="/resources/images/fashionista-girl-hd-wallpaper-1920x1080-3914-815x500.jpg"/>" alt="Chudi">
       
-        <img class="img-responsive img-circle bw" id="image" src="<c:url value="/resources/images/chudi.jpg"/>" alt="ware" style="width:300px;
- height:300px;
- margin-bottom:100px;">
-      
+     </a>
     </div>
   </div>
 </div>
-
 <script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
+    <%@ include file="template/footer.jsp" %>
 
 </body>
 </html>
-        <%@ include file="template/footer.jsp" %>
 

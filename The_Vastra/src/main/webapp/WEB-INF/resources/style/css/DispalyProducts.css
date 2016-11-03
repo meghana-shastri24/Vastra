@@ -12,3 +12,24 @@ height:auto;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
  }
  
+ .card-title{
+ color:black;
+ }
+ 
+ .card-text{
+ color:black;
+ }
+ 
+ #bag{
+ color:white;
+  background-color:#94618e;
+  border-radius:600px;
+ 
+ }
+ 
+ #bag:hover
+ {
+ background-color:white;
+ color:#94618e;
+ border-radius:600px;
+ }

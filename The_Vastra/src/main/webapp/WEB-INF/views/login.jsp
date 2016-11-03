@@ -1,30 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-        <%@ include file="template/Header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>        
+    <%@ include file="template/Header.jsp" %>
     
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>"/>
+	
+	  <link rel="stylesheet" href="/The_Vastra/resources/style/css/login.css" type="text/css">
+	
   <style>
 
 
- 
-  #form{
-  margin-top:75px;
-  
-  } 
-  
-  .form
-	{
-	margin:90px auto 0px;
-	position:relative;
-	max-width:500px;
-	}
 	
 	</style>
 </head>
@@ -37,7 +28,7 @@
             
             <!-- Login Form -->
             
-<div class="form-horizontal" id="wrapper">
+<div class="form-horizontal jumbotron" id="wrapper">
 <div class="form form-group-sm">
 
 
@@ -47,7 +38,7 @@
                     <div class="error" style="color: #ff0000; margin-top:90px;">${error}</div>
                 </c:if>
                 
-  <div class="conatiner">
+  <div class="container">
   
   	<div class="form-group ">
   	<label for="email"> Email Address </label>
