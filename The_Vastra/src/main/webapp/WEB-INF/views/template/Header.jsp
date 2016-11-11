@@ -46,9 +46,9 @@ xmlns:security="http://www.springframework.org/security/tags"
     				
     	<!-- Search Bar-->
 	<li>
-	<form class="navbar-form">
+	<form class="navbar-form" action="prosearch">
     		<div class="input-group" id="searchsize">
-        		<input type="text" class="form-control" placeholder="Search Here..." id="Search" />
+        		<input type="Search" name="srch" class="form-control" placeholder="Search Here..." id="Search" />
         	<div class="input-group-btn">
             	<button type="button" class="btn btn-default" id="search">
                 <span class="glyphicon glyphicon-search"></span>
