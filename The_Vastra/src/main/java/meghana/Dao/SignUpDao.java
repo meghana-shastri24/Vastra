@@ -8,4 +8,6 @@ public interface SignUpDao {
 	public void addCustomer(SignUpForm p);
 	
 	public SignUpForm getCustomerByUsername(String username);
+
+	public String getemail(String email);
 }

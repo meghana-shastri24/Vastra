@@ -85,5 +85,22 @@ public class CustomerOrderDaoimpl implements CustomerOrderDao {
         session.save(order);
         session.flush();
 	}
+	
+	public boolean validateorder(Cart cart)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select customername from CustomerOrder where cartid = ?");
+		int cartid=cart.getCartid();
+		query.setInteger(0, cartid);
+		String name=(String) query.uniqueResult();
+		
+		if (name==null)
+		return false;
+		
+		else
+			return true;
+	
+	}
+	
 
 }

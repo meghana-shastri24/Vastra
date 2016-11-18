@@ -25,6 +25,17 @@ h2 {
 max-width: 450px;
 margin-top:90px; }
 
+.account
+{
+	font-family:Comic Sans MS;
+}
+#msg
+{
+color:red;
+font-style:italic, bold;
+font-family:cursive;
+
+}
 
  
 
@@ -35,11 +46,11 @@ margin-top:90px; }
 
     <div class="container" id="container">
 		<div class="row">
-			<div class="panel panel-primary" id="wrapper">
+			<div class="panel panel-danger " id="wrapper">
 				<div class="panel-body">
-	<form:form class="form-horizontal" action="Signup" method="post" commandName="signupform">
+	<form:form class="form-horizontal" action="SignUpSuccess" method="post" commandName="signupform">
 						<div class="form-group">
-							<h2>Create account</h2>
+							<h1 style="	font-family:cursive;">Create account</h1>
 						</div>
 						<div class="form-group">
 							<form:label path="username" for="username">User name :</form:label>
@@ -49,6 +60,7 @@ margin-top:90px; }
 							<form:label path="email" for="email">Email Address :</form:label>
 							<form:input path="email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="true"
 			title="Please enter a valid email" class="form-control"></form:input>
+			<p id="msg">${msg }</p>
 						</div>
 						<div class="form-group">
 							<form:label path="password" for="password">Password :</form:label>

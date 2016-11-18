@@ -116,7 +116,7 @@ import meghana.model.ProductForm;
 	    }
 	
 	
-	@RequestMapping(value="/editproduct/{productid}", method=RequestMethod.GET)
+	@RequestMapping(value="/viewproduct/editproduct/{productid}", method=RequestMethod.GET)
 	public String editproduct(@PathVariable ("productid") int productid,  Model model)
 	{
 		ProductForm pro=productservice.getProductsbyId(productid);
@@ -125,7 +125,7 @@ import meghana.model.ProductForm;
 		
 	}
 	
-	@RequestMapping(value="/editproduct/editproduct/{productid}", method = RequestMethod.POST)
+	@RequestMapping(value="/viewproduct/editproduct/editproduct/{productid}", method = RequestMethod.POST)
 	public String editproduct(@ModelAttribute("product") ProductForm productform, BindingResult result, HttpServletRequest request)
 	{	
 		
@@ -148,7 +148,7 @@ import meghana.model.ProductForm;
 		return "redirect:/allproducts";
 	}
 	
-	@RequestMapping(value="/deleteproduct/{productid}", method=RequestMethod.GET)
+	@RequestMapping(value="/viewproduct/deleteproduct/{productid}", method=RequestMethod.GET)
 	public String deleteproduct(@PathVariable int productid, Model model, HttpServletRequest request)
 	{
 		

@@ -13,6 +13,8 @@ public interface CustomerOrderDao {
 
 	public void deleteOrder(CustomerOrder order);
     public void removeAllOrder(Cart cart);
+	public boolean validateorder(Cart cart);
+
 
 
 }

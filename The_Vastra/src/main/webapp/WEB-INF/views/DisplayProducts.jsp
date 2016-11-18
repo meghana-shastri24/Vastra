@@ -29,31 +29,29 @@ xmlns:security="http://www.springframework.org/security/tags"
 
 <a style="text-decoration:none" href="viewproduct/${p.productid}">
 <div>
-  <img class="card-img-top" src="<c:url value="/resources/images/${p.productid}.jpg"/>" alt="image" style="width:100%; height:375px;" alt="Card image cap">
+  <img class="card-img-top image-responsive" src="<c:url value="/resources/images/${p.productid}.jpg"/>" alt="image" style="width:auto; height:375px;" alt="Card image cap">
   <div class="card-block" style="height:50px;margin:0px 0px 0px 10px;">
   <h4  class="card-title">${p.productname} By ${p.brand} </h4></div>
   <div style="height:20px;margin:0px 0px 20px 20px;"><p class="card-text">
     	PRICE: <i class="fa fa-inr" aria-hidden="true"> ${p.price}</i></p></div>
+    	<c:choose>
+						<c:when test="${p.stock!='0'}">
+							<div class="card-text" style="height:20px;margin:-15px 0px 20px 20px; color:green;">In Stock : ${p.stock}</div>
+						</c:when>
+					
+					<c:otherwise>
+							<div class="card-text" style="height:20px;margin:-15px 0px 20px 20px;color:red;">Out Of Stock</div>
+					
+					</c:otherwise>
+					</c:choose>
   </div>
   </a>
   
   
   <div style="margin:auto auto 10px 100px;">
-  <c:if test="${pageContext.request.userPrincipal.name == 'm@m'}">
-  		<a href="editproduct/${p.productid }">
-   		<button type="button" class="btn btn-success">
-  		<span class="glyphicon glyphicon-pencil"></span>
-		</button>
-		</a>
   
-  		<a href="deleteproduct/${p.productid }">
-  		<button type="button" class="btn btn-danger">
-  		<span class="glyphicon glyphicon-remove"></span>
-  		</button>
-  		</a>
-  </c:if>
  </div>
-<c:if test="${pageContext.request.userPrincipal.name != 'm@m'}">
+<c:if test="${(pageContext.request.userPrincipal.name != 'meg@mail.com') && (p.stock!='0') }" >
 
 	<div  style="height:30px;margin:0px 0px 20px 80px;">
 						<a href="#" ng-click="addToCart('${p.productid }')" class="btn btn-default" id="bag">

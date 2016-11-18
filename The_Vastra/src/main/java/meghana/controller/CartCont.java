@@ -1,5 +1,7 @@
 package meghana.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,14 +16,13 @@ import meghana.model.SignUpForm;
 
 
 @Controller
-@RequestMapping("/customer/viewcart")
 public class CartCont {
 	
 	
 	    @Autowired
 	    private SignUpService customerService;
 
-	    @RequestMapping
+	    @RequestMapping("/viewcart")
 	    public String getCart(){
 	    	
 	    	System.out.println("in get cart");
@@ -30,13 +31,20 @@ public class CartCont {
 	        SignUpForm customer = customerService.getCustomerByUsername (user.getUsername());
 	        int cartId = customer.getCart().getCartid();
 	        System.out.println("View Cart in Get Cart"+cartId);
-	        return "redirect:/customer/viewcart/"+cartId;
+	        return "redirect:/cart?param="+cartId;
 	    }
 
-	    @RequestMapping("/{cartid}")
-	    public String getCartRedirect(@PathVariable (value = "cartid") int cartId, Model model) {
-	        model.addAttribute("cartid", cartId);
-	        System.out.println("View Cart in Get Cart Redirect");
+	    @RequestMapping(value="/cart")
+	    public String getCartRedirect( Model model,HttpServletRequest request) {
+	    	int cartid=Integer.parseInt(request.getParameter("param"));
+	    	User u=(User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    	SignUpForm user=customerService.getCustomerByUsername(u.getUsername());
+	    	if(user.getCart().getCartid()==cartid){
+	    		model.addAttribute("cartid", cartid);
+		        System.out.println("View Cart in Get Cart Redirect");
+	    		}
+	    	
+	    	
 	        return "viewcart";
 	    }
 

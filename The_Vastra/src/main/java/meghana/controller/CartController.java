@@ -55,26 +55,17 @@ public class CartController {
 	    System.out.println("Hello Before Cart Add");
 	    	try{
 	    		User user= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	    	System.out.println(1);
 	        SignUpForm customer = customerService.getCustomerByUsername(user.getUsername());
-	        System.out.println(1);
 	        Cart cart = customer.getCart();
-	        System.out.println(2);
 	        ProductForm product = productService.getProductsbyId(productId);
-	        System.out.println("Product Id : " + product.getProductid());
-	        System.out.println(3);
 	        List<CartItems> cartItems = cart.getCartitems();
-	        System.out.println(4+""+ cartItems.size());
 
 	        for (int i=0; i<cartItems.size(); i++) {
-	        	System.out.println(5);
 	            if(product.getProductid()==cartItems.get(i).getProduct().getProductid()){
-	            	System.out.println(6);
 	                CartItems cartItem = cartItems.get(i);
 	                cartItem.setQuantity(cartItem.getQuantity()+1);
 	                cartItem.setTotalprice(product.getPrice()*cartItem.getQuantity());
 	                cartItemService.addCartItem(cartItem);
-	                System.out.println(7);
 	                return;
 	            }
 	        }

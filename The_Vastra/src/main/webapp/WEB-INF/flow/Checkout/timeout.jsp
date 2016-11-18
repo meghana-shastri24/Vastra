@@ -22,7 +22,7 @@
                 <div class="container">
                     <h1 class="alert alert-danger">Checkout cancelled</h1>
 
-                    <p>Your checkout process is cancelled. You may continue shopping.</p>
+                    <p>Sorry you have exceeded the time limit..</p>
                 </div>
             </div>
         </section>
@@ -35,9 +35,11 @@
 
     </div>
 </div>
+</body>
+
 
 <script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
-</body>
 
+</html>
 

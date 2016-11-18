@@ -75,6 +75,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <script src="<c:url value="/resources/style/js/controller.js"/>"></script> 
+<script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
 
 </body>
 </html>

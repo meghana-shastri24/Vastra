@@ -12,4 +12,6 @@ public interface SignUpService {
 	  
 	  public SignUpForm getCustomerByUsername(String username);
 
+	public String getemail(String email);
+
 }

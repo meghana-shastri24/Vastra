@@ -42,18 +42,29 @@ public class OrderController {
 	    	    public void run() {
 	    	    	
 	    	    	try{
+	    	    		
+	    	    		System.out.println("thread2 running");
+
+	    	    		System.out.println("thread sleep");
+
 	    	    		Thread.sleep(30000);
 	    	    	}
 	    	    	
 	    	    	catch(Exception e){}
 	    	    	
 	    	        timeellapse(cartid);
+    	    		System.out.println("time ellapsed");
+
+	    	        
 	    	    }
 	    	    	
 	    	};
 
 	    	Thread thread2 = new Thread() {
 	    	    public void run() {
+	    	    	
+    	    		System.out.println("thread2 running");
+
 	    	    	 CustomerOrder order = new CustomerOrder();
 	    	         List<CartItems> items=cartService.getCartItemByCartId(cartid);
 	    	    	 for(CartItems item:items){
@@ -73,6 +84,7 @@ public class OrderController {
 	    	    	        	order.setPrice(p.getPrice());
 	    	    	        	order.setQuant(item.getQuantity());
 	    	    	        	p.setStock(p.getStock()-item.getQuantity());
+	    	    	        	System.out.println(p.getStock()-item.getQuantity());
 	    	    	        	ps.editProduct(p);
 	    	    	        	
 	    	    	        	os.addCustomerOrder(order);
@@ -95,6 +107,8 @@ public class OrderController {
 	        for(CustomerOrder order:orders){
 	        	ProductForm p = ps.getProductsbyId(order.getPid());
 	        	p.setStock(p.getStock()+order.getQuant());
+	        	System.out.println(p.getStock()+order.getQuant());
+
 	        	ps.editProduct(p);
 	        	os.deleteOrder(order);
 			

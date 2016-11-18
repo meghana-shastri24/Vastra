@@ -66,9 +66,9 @@ xmlns:security="http://www.springframework.org/security/tags"
                             <li><a>Welcome:${pageContext.request.userPrincipal.name} </a></li>
                             <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
                             
-                                	  <c:if test="${pageContext.request.userPrincipal.name != 'm@m'}">
+                                	  <c:if test="${pageContext.request.userPrincipal.name != 'meg@mail.com'}">
                             
-                            <li><a href="<c:url value="/customer/viewcart" />"><i class="fa fa-shopping-bag" style="font-size:20px;"></i>
+                            <li><a href="<c:url value="/viewcart" />"><i class="fa fa-shopping-bag" style="font-size:20px;"></i>
 </a></li>
 </c:if>
           </c:if>
@@ -81,7 +81,7 @@ xmlns:security="http://www.springframework.org/security/tags"
       	  <li><a href="SignUp"> <span class="glyphicon glyphicon-user"></span> &nbsp;Sign Up</a></li>
       	  </c:if>
       	  
-      	  <c:if test="${pageContext.request.userPrincipal.name =='m@m'}">
+      	  <c:if test="${pageContext.request.userPrincipal.name =='meg@mail.com'}">
     	  <li><a href="AddProducts">Add Items</a></li>
     	  </c:if>
     	  

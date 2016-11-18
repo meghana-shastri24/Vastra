@@ -15,7 +15,14 @@
 	
   <style>
 
+#container { 
+max-width: 450px;
+margin-top:90px;
+}
 
+form { 
+margin: 0px 10px;
+}
 	
 	</style>
 </head>
@@ -27,18 +34,20 @@
             </c:if>
             
             <!-- Login Form -->
-            
-<div class="form-horizontal jumbotron" id="wrapper">
-<div class="form form-group-sm">
+<div class="container" id="container">
+		<div class="row">
+			<div class="panel " id="wrapper">
+				<div class="panel-body">            
 
 
-	 <form name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+
+	 <form class="form-horizontal" name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
                 
                 <c:if test="${not empty error}">
                     <div class="error" style="color: #ff0000; margin-top:90px;">${error}</div>
                 </c:if>
                 
-  <div class="container">
+  
   
   	<div class="form-group ">
   	<label for="email"> Email Address </label>
@@ -55,11 +64,12 @@
     <button type="submit" class="btn btn-primary">Login</button>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
- </div>
+ 
 </form>
 </div>
 </div>
-
+</div>
+</div>
 <!-- End of Form -->
 <script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>

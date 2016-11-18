@@ -133,7 +133,8 @@
         </div>
         
    
-   
+   <script src="<c:url value="/resources/bootstrap/js/jquery-3.1.0.min.js"/>"></script> 
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
        
 </body>
 </html>

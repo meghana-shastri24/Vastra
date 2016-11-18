@@ -86,4 +86,13 @@ import meghana.model.SignUpForm;
 			}
 
 
+			public String getemail(String email) {
+				
+				Session session = sessionFactory.getCurrentSession();
+		        Query query = session.createQuery("select email from SignUpForm where email = ?");
+		        query.setString(0, email);
+		        return  (String) query.uniqueResult();
+			}
+
+
 	}

@@ -32,5 +32,12 @@ public SignUpForm getCustomerByUsername(String username) {
 	return this.customerDAO.getCustomerByUsername(username);
 }
 
+
+
+public String getemail(String email) {
+
+	return this.customerDAO.getemail(email);
+}
+
    
 }

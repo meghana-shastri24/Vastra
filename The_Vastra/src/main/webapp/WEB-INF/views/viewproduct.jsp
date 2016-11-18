@@ -52,37 +52,42 @@ width:300px;
 					<div class="product-color">Color : ${p.color}</div>
 					<div class="product-price">Price : <i class="fa fa-inr" style="font-size:24px"> ${p.price }</i></div>
 					<div class="product-size">Size &nbsp;: ${p.size}</div>
-					<div class="product-stock">In Stock : ${p.stock}</div>
+					<c:choose>
+						<c:when test="${p.stock!='0'}">
+							<div class="product-stock">In Stock : ${p.stock}</div>
+						</c:when>
 					
+					<c:otherwise>
+							<div class="product-stock" style="color:red;">Out Of Stock</div>
+					
+					</c:otherwise>
+					</c:choose>
 					<hr>
-					 <div class="pull-right">
-  <c:if test="${pageContext.request.userPrincipal.name == 'm@m'}">
+	
+ 
+										
+				 <div ng-app = "cartApp" ng-controller="cartCtrl" >
+				<c:if test="${pageContext.request.userPrincipal.name != 'meg@mail.com'}">
+					
+					<div class="btn-group cart">
+					<c:if test= "${p.stock!='0' }">
+						<a href="#" ng-click="addToCart('${p.productid}')" class="btn btn-success">
+							Add to Bag 
+						</a>
+						</c:if>
+					</div>
+					</c:if>
+					<c:if test="${pageContext.request.userPrincipal.name == 'meg@mail.com'}">
   		<a href="editproduct/${p.productid }">
-   		<button type="button" class="btn btn-success">
-  		<span class="glyphicon glyphicon-pencil"></span>
+   		<button type="button" class="btn btn-default">   &nbsp; Edit &nbsp;
 		</button>
 		</a>
   
   		<a href="deleteproduct/${p.productid }">
-  		<button type="button" class="btn btn-danger">
-  		<span class="glyphicon glyphicon-remove"></span>
-  		</button>
+  		<button type="button" class="btn btn-default">
+Delete  		</button>
   		</a>
-  		</c:if>
- </div>
-										
-				 <div ng-app = "cartApp" ng-controller="cartCtrl" >
-					
-					<div class="btn-group cart">
-						<a href="#" ng-click="addToCart('${p.productid}')" class="btn btn-success">
-							Add to Bag 
-						</a>
-					</div>
-					<div class="btn-group buy">
-						<button type="button" class="btn btn-danger">
-							Order Now
-						</button>
-					</div>
+  </c:if>
 					
 					
 		</div>

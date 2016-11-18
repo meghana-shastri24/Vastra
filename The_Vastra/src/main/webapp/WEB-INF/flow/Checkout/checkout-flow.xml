@@ -17,10 +17,14 @@
     </view-state>
 
     <view-state id="orderConfirmation" view="orderConfirmation.jsp" model="order" >
-        <transition on="orderConfirmed" to="processOrder" />
+        <transition on="orderConfirmed" to="validateorder" />
         <transition on="backTocollectCustomerInfo" to="collectCustomerInfo" />
     </view-state>
-
+	<action-state id="validateorder">
+        <evaluate expression="customerOrderDaoimpl.validateorder(order.cart)" />
+        <transition on="yes"  to="processOrder"></transition>
+        <transition on="no"  to="timeout" />
+    </action-state>
     <action-state id="processOrder">
         <evaluate expression="cartitemDaoImpl.removeallcartitems(order.cart)" />
         <transition  to="thankCustomers" />
@@ -34,7 +38,9 @@
     <view-state id="thankCustomer" view="thankCustomer.jsp" model="order">
         <transition to="endState" />
     </view-state>
-
+	<view-state id="timeout" view="timeout.jsp" model="order">
+	<transition to="endState"></transition>
+	</view-state>
     <end-state id="endState" />
 
     <view-state id="invalidCartWarning">
